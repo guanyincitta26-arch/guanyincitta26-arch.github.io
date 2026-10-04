@@ -1,0 +1,389 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Budget: a calm, private money tracker</title>
+<meta name="description" content="Budget is a calm, private way to track spending, plan every category, and grow your savings. No account, no tracking, no ads. Your data stays on your phone.">
+<meta name="theme-color" content="#0F2E23">
+<meta property="og:title" content="Budget: a calm, private money tracker">
+<meta property="og:description" content="No account. No tracking. No ads. Your numbers stay on your phone.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="preload" href="assets/fonts/dmsans-900.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" data-nav>
+  <div class="nav__inner">
+    <a class="brand" href="#top" aria-label="Budget, back to top">
+      <img src="assets/icon-180.png" alt="" width="34" height="34">
+      <span>Budget</span>
+    </a>
+    <nav class="nav__links" aria-label="Main">
+      <a href="#features">Features</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#backups">Backups</a>
+      <a href="support.html">Support</a>
+    </nav>
+    <a class="pill pill--orange pill--sm" href="#get">Get the app</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="hero__inner">
+      <div class="hero__copy">
+        <h1 class="hero__title" data-split>Your money. Your plan. Your <em>future.</em></h1>
+        <p class="hero__lead">Track your spending, plan every category, and grow your savings in a calm app that keeps everything on your phone.</p>
+        <div class="badges hero__badges">
+          <a class="badge" href="https://apps.apple.com/us/app/budget-calm-money-tracker/id6802582241" aria-label="Download Budget on the App Store">
+            <img src="assets/badges/app-store.svg" alt="Download on the App Store" width="150" height="50">
+          </a>
+          <a class="badge" href="https://play.google.com/store/apps/details?id=com.michelleliu.budget" aria-label="Get Budget on Google Play">
+            <img src="assets/badges/google-play.png" alt="Get it on Google Play" width="169" height="50">
+          </a>
+        </div>
+        <ul class="hero__promises" aria-label="Privacy promises">
+          <li><span class="tick" aria-hidden="true"></span>No account</li>
+          <li><span class="tick" aria-hidden="true"></span>No tracking</li>
+          <li><span class="tick" aria-hidden="true"></span>No ads</li>
+        </ul>
+      </div>
+
+      <div class="hero__stage" data-tilt>
+        <div class="hero__phone phone" data-depth="1">
+          <img src="assets/screens/01-home.webp" width="720" height="1218" alt="The Budget dashboard: a good morning greeting, a daily affirmation, a monthly review card, shortcut tiles, and upcoming bills.">
+        </div>
+
+        <div class="chip chip--salary" data-depth="2.2" aria-hidden="true">
+          <span class="chip__icon chip__icon--up">&uarr;</span>
+          <span class="chip__text"><b>Salary</b><small>Arrives Sep 25</small></span>
+          <span class="chip__amt chip__amt--pos">+$3,200</span>
+        </div>
+
+        <div class="chip chip--groceries" data-depth="1.6" aria-hidden="true">
+          <span class="chip__text"><b>Groceries</b><small>$180 left</small></span>
+          <span class="chip__amt">$420 / $600</span>
+          <span class="chip__bar"><i style="--to:70%"></i></span>
+        </div>
+
+        <div class="chip chip--goal" data-depth="2.6" aria-hidden="true">
+          <svg class="ring" viewBox="0 0 44 44"><circle cx="22" cy="22" r="18"/><circle class="ring__fill" cx="22" cy="22" r="18" style="--p:.68"/></svg>
+          <span class="chip__text"><b>Emergency fund</b><small>$1,700 of $2,500</small></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIVACY STATEMENT -->
+  <section class="statement" id="privacy">
+    <div class="wrap">
+      <p class="statement__text" data-words>Budget has no account, no cloud, and no tracking. Your numbers live on your phone, and that is where they stay.</p>
+    </div>
+
+    <div class="wrap promises">
+      <article class="promise promise--signup" data-reveal>
+        <div class="promise__art" aria-hidden="true">
+          <div class="form">
+            <span class="form__field form__field--no">Email address</span>
+            <span class="form__field form__field--no">Create a password</span>
+            <span class="form__field form__field--yes"><small>What should we call you?</small>Michelle</span>
+            <span class="form__btn">Let&rsquo;s begin</span>
+          </div>
+        </div>
+        <div class="promise__body">
+          <h3>Nothing to sign up for</h3>
+          <p>Type your name, pick your currency, and you are in. There is no email, no password, and no account to lose.</p>
+        </div>
+      </article>
+
+      <article class="promise promise--offline" data-reveal>
+        <div class="promise__art" aria-hidden="true">
+          <div class="toggle-row">
+            <span>Airplane mode</span>
+            <span class="toggle"><i></i></span>
+          </div>
+          <div class="still-works"><span class="tick tick--dark"></span>Budget still works</div>
+        </div>
+        <div class="promise__body">
+          <h3>Works with no internet</h3>
+          <p>Budget never needs a connection to keep your numbers. It works on a plane, in a basement, anywhere.</p>
+        </div>
+      </article>
+
+      <article class="promise promise--noads" data-reveal>
+        <div class="promise__art" aria-hidden="true">
+          <span class="struck">Ads</span>
+          <span class="struck">Trackers</span>
+          <span class="struck">Data sales</span>
+        </div>
+        <div class="promise__body">
+          <h3>No ads, ever</h3>
+          <p>No trackers and no analytics. Nothing you enter is shared or sold.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- FEATURE STORY -->
+  <section class="story" id="features" data-story>
+    <div class="wrap story__head">
+      <h2 class="h2">Everything a calm month needs, <em>nothing it doesn&rsquo;t.</em></h2>
+    </div>
+
+    <div class="wrap story__grid">
+      <ol class="story__steps">
+        <li class="step" data-step="0" data-screen="01-home" data-tint="pink">
+          <span class="step__tag">Dashboard</span>
+          <h3>Your month at a glance</h3>
+          <p>A warm greeting, a kind thought for the day, and what is coming up next. Step to any month with a tap.</p>
+          <div class="step__media phone phone--sm"><img src="assets/screens/01-home.webp" loading="lazy" width="720" height="1218" alt="The dashboard screen."></div>
+        </li>
+        <li class="step" data-step="1" data-screen="03-budget" data-tint="green">
+          <span class="step__tag">Budget</span>
+          <h3>Plan every category</h3>
+          <p>Set a plan for groceries, transport, fun, and anything else. See what is left as you spend through the month.</p>
+          <div class="step__media phone phone--sm"><img src="assets/screens/03-budget.webp" loading="lazy" width="720" height="1218" alt="The budget screen, with planned and spent amounts and a progress bar for each category."></div>
+        </li>
+        <li class="step" data-step="2" data-screen="04-activity" data-tint="blue">
+          <span class="step__tag">Activity</span>
+          <h3>Every entry in one calm list</h3>
+          <p>Log an expense, income, or transfer in a few taps. Tap any entry later to change it.</p>
+          <div class="step__media phone phone--sm"><img src="assets/screens/04-activity.webp" loading="lazy" width="720" height="1218" alt="The activity screen, listing salary, groceries, coffee, and a transfer to savings."></div>
+        </li>
+        <li class="step" data-step="3" data-screen="05-calendar" data-tint="yellow">
+          <span class="step__tag">Bills &amp; calendar</span>
+          <h3>Bills laid out by day</h3>
+          <p>Set up rent, pay, and subscriptions once and they post themselves. Add a reminder and get a gentle nudge the day before.</p>
+          <div class="step__media phone phone--sm"><img src="assets/screens/05-calendar.webp" loading="lazy" width="720" height="1218" alt="The calendar screen, with colored dots on bill days."></div>
+        </li>
+        <li class="step" data-step="4" data-screen="06-savings" data-tint="rose">
+          <span class="step__tag">Savings goals</span>
+          <h3>Watch your goals fill up</h3>
+          <p>Name a goal, set a target, and add to it whenever you can. Each ring fills a little more as you get closer.</p>
+          <div class="step__media phone phone--sm"><img src="assets/screens/06-savings.webp" loading="lazy" width="720" height="1218" alt="Savings goals: an emergency fund at 68 percent, a trip to Japan at 40 percent, and a new laptop that is complete."></div>
+        </li>
+        <li class="step" data-step="5" data-screen="07-debts" data-tint="plum">
+          <span class="step__tag">Debt payoff</span>
+          <h3>A clear path out of debt</h3>
+          <p>See what you owe, your monthly minimums, and roughly when each balance will be clear.</p>
+          <div class="step__media phone phone--sm"><img src="assets/screens/07-debts.webp" loading="lazy" width="720" height="1218" alt="Debt payoff: total owed, monthly minimums, and an estimated clear date for each debt."></div>
+        </li>
+        <li class="step" data-step="6" data-screen="08-accounts" data-tint="cyan">
+          <span class="step__tag">Accounts</span>
+          <h3>Cash, bank, and cards together</h3>
+          <p>Keep every balance in one place. Move money between accounts or pay down a card with a simple transfer.</p>
+          <div class="step__media phone phone--sm"><img src="assets/screens/08-accounts.webp" loading="lazy" width="720" height="1218" alt="Accounts: an everyday account, cash, and a credit card."></div>
+        </li>
+        <li class="step" data-step="7" data-screen="02-review" data-tint="orange">
+          <span class="step__tag">Monthly review</span>
+          <h3>A gentle look back</h3>
+          <p>At the end of each month, see your balances, your income, and where it went. No judgment, just a clear picture.</p>
+          <div class="step__media phone phone--sm"><img src="assets/screens/02-review.webp" loading="lazy" width="720" height="1218" alt="The monthly review for September, listing accounts, income, debt, and savings."></div>
+        </li>
+      </ol>
+
+      <div class="story__stage" aria-hidden="true">
+        <div class="story__panel" data-panel>
+          <div class="story__phone phone">
+            <img src="assets/screens/01-home.webp" alt="" class="is-active" data-shot="01-home">
+            <img src="assets/screens/03-budget.webp" alt="" data-shot="03-budget" loading="lazy">
+            <img src="assets/screens/04-activity.webp" alt="" data-shot="04-activity" loading="lazy">
+            <img src="assets/screens/05-calendar.webp" alt="" data-shot="05-calendar" loading="lazy">
+            <img src="assets/screens/06-savings.webp" alt="" data-shot="06-savings" loading="lazy">
+            <img src="assets/screens/07-debts.webp" alt="" data-shot="07-debts" loading="lazy">
+            <img src="assets/screens/08-accounts.webp" alt="" data-shot="08-accounts" loading="lazy">
+            <img src="assets/screens/02-review.webp" alt="" data-shot="02-review" loading="lazy">
+          </div>
+          <div class="story__dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SMALL THINGS -->
+  <section class="small" aria-labelledby="small-title">
+    <div class="wrap">
+      <h2 class="h2" id="small-title">The small things, <em>done gently.</em></h2>
+
+      <div class="bento">
+        <article class="tile tile--ring" data-reveal>
+          <div class="tile__art">
+            <svg class="bigring" viewBox="0 0 120 120" aria-hidden="true">
+              <circle cx="60" cy="60" r="50"/>
+              <circle class="bigring__fill" cx="60" cy="60" r="50"/>
+            </svg>
+            <span class="bigring__num" data-count="68">0%</span>
+          </div>
+          <h3>Savings that feel like progress</h3>
+          <p>Emergency fund, $1,700 of $2,500. Every little top up moves the ring.</p>
+        </article>
+
+        <article class="tile tile--nudge" data-reveal>
+          <div class="tile__art">
+            <div class="notif">
+              <img src="assets/icon-180.png" alt="" width="36" height="36">
+              <div><b>Coming up tomorrow</b><span>Electricity</span></div>
+              <small>now</small>
+            </div>
+          </div>
+          <h3>A nudge, not a nag</h3>
+          <p>Turn on a reminder and Budget sends a quiet note the day before. It comes from your phone, not a server.</p>
+        </article>
+
+        <article class="tile tile--recurring" data-reveal>
+          <ul class="rules" aria-hidden="true">
+            <li><span class="dot" style="--c:#E23B4E"></span>Rent<em>Monthly</em><i class="tick tick--dark"></i></li>
+            <li><span class="dot" style="--c:#1B7A4B"></span>Pay check<em>Fortnightly</em><i class="tick tick--dark"></i></li>
+            <li><span class="dot" style="--c:#3A5DA9"></span>Phone plan<em>Monthly</em><i class="tick tick--dark"></i></li>
+          </ul>
+          <h3>Bills that post themselves</h3>
+          <p>Monthly, weekly, fortnightly, or yearly. Skip one any time, or undo it.</p>
+        </article>
+
+        <article class="tile tile--debt" data-reveal>
+          <div class="debtbar" aria-hidden="true">
+            <div class="debtbar__top"><span>Car loan</span><b>Clear in about 1 year, 10 months</b></div>
+            <div class="debtbar__track"><i></i></div>
+          </div>
+          <h3>Debt, with a finish line</h3>
+          <p>APR and minimums turn into a rough clear date you can watch get closer.</p>
+        </article>
+
+        <article class="tile tile--theme" data-reveal>
+          <div class="theme-demo" aria-hidden="true">
+            <div class="theme-demo__card">
+              <span>Spent this month</span>
+              <b>$1,925</b>
+              <i></i>
+            </div>
+          </div>
+          <h3>Light, dark, or match your phone</h3>
+          <p>Easy on the eyes at night, bright and clear by day.</p>
+        </article>
+
+        <article class="tile tile--currency" data-reveal>
+          <div class="currency" aria-hidden="true"><span data-cycle="$ € £ ¥ ₹ ₩ ₱ R$">$</span></div>
+          <h3>Your currency</h3>
+          <p>Choose the symbol you use. Amounts line up neatly in tidy columns.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- AFFIRMATIONS -->
+  <section class="kind" aria-label="A few of the daily affirmations in Budget">
+    <div class="marquee" data-marquee>
+      <div class="marquee__row">
+        <span>One steady step is still progress.</span><span>Small, calm choices add up to a good life.</span><span>Money is a tool, not a scorecard.</span><span>Give your future self a small gift today.</span><span>Gentle with money, gentle with yourself.</span>
+      </div>
+    </div>
+    <div class="marquee marquee--reverse" data-marquee>
+      <div class="marquee__row">
+        <span>Steady beats fast. You are on your way.</span><span>Tend to today; tomorrow will keep.</span><span>The balance you want is built in little moments.</span><span>Breathe. The plan is working, even slowly.</span><span>Whatever today holds, you can meet it.</span>
+      </div>
+    </div>
+    <p class="kind__caption wrap">A new kind thought on your dashboard every day.</p>
+  </section>
+
+  <!-- BACKUPS -->
+  <section class="backups" id="backups">
+    <div class="wrap backups__grid">
+      <div class="backups__copy">
+        <h2 class="h2">Your backup is a file <em>you keep.</em></h2>
+        <p class="lead">There is no cloud copy of your data, so you are always in charge of it. Save a backup whenever you like and keep it wherever you trust.</p>
+        <ol class="howto">
+          <li><b>Export a backup</b><span>In Settings, tap Export a backup. Budget makes one small file.</span></li>
+          <li><b>Save it somewhere safe</b><span>Choose where it goes: your files, a drive, or a message to yourself.</span></li>
+          <li><b>Restore on any phone</b><span>On a new phone, tap Import a backup and everything comes back.</span></li>
+        </ol>
+      </div>
+      <div class="backups__art" aria-hidden="true" data-reveal>
+        <div class="mini-phone">
+          <span class="mini-phone__row"></span><span class="mini-phone__row"></span><span class="mini-phone__row short"></span>
+        </div>
+        <div class="file"><span class="file__icon">{ }</span><span class="file__name">budget-backup.json</span></div>
+        <div class="folder"><span class="folder__tab"></span><span class="folder__label">My files</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" aria-labelledby="faq-title">
+    <div class="wrap faq__grid">
+      <h2 class="h2" id="faq-title">Questions, <em>answered.</em></h2>
+      <div class="faq__list">
+        <details>
+          <summary>Do I need an account?</summary>
+          <p>No. There is no sign-up and no sign-in. Open the app, add your name and currency, and you are ready.</p>
+        </details>
+        <details>
+          <summary>Is my data sent anywhere?</summary>
+          <p>No. Everything you enter is stored on your phone. Budget has no server to send it to, and it does not use analytics or trackers.</p>
+        </details>
+        <details>
+          <summary>What happens if I get a new phone?</summary>
+          <p>Export a backup on your old phone, save the file somewhere you can reach, then import it on your new phone. Everything comes back as it was.</p>
+        </details>
+        <details>
+          <summary>Does it work without internet?</summary>
+          <p>Yes. Budget works fully offline, all the time.</p>
+        </details>
+        <details>
+          <summary>Is it on iPhone and Android?</summary>
+          <p>Yes. Budget is on the App Store for iPhone and on Google Play for Android.</p>
+        </details>
+        <details>
+          <summary>How much does it cost?</summary>
+          <p>The price is shown on the App Store and Google Play before you download. There are no ads, ever.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta" id="get">
+    <div class="wrap cta__grid">
+      <div class="cta__copy">
+        <h2 class="cta__title">Start your <em>calm month.</em></h2>
+        <p class="hero__lead">Budget is ready on iPhone and Android. No account needed.</p>
+        <div class="badges">
+          <a class="badge" href="https://apps.apple.com/us/app/budget-calm-money-tracker/id6802582241" aria-label="Download Budget on the App Store">
+            <img src="assets/badges/app-store.svg" alt="Download on the App Store" width="150" height="50" loading="lazy">
+          </a>
+          <a class="badge" href="https://play.google.com/store/apps/details?id=com.michelleliu.budget" aria-label="Get Budget on Google Play">
+            <img src="assets/badges/google-play.png" alt="Get it on Google Play" width="169" height="50" loading="lazy">
+          </a>
+        </div>
+      </div>
+      <div class="cta__phone phone" data-reveal>
+        <img src="assets/screens/10-welcome.webp" loading="lazy" width="720" height="1218" alt="The Budget welcome screen: Your money. Your plan. Your future.">
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <a class="brand" href="#top"><img src="assets/icon-180.png" alt="" width="28" height="28" loading="lazy"><span>Budget</span></a>
+    <nav aria-label="Footer">
+      <a href="privacy-policy.html">Privacy policy</a>
+      <a href="support.html">Support</a>
+      <a href="mailto:guanyincitta26@gmail.com">Email</a>
+    </nav>
+    <p>Made with care. No cookies, no trackers on this page either.</p>
+  </div>
+</footer>
+
+<script src="main.js" defer></script>
+</body>
+</html>
