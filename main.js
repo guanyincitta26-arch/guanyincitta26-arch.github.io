@@ -192,6 +192,32 @@
     }, 1800);
   }
 
+  // Hero phone video: silent loop. Pauses off screen, has a pause button,
+  // and never starts on its own for people who prefer reduced motion.
+  const heroVideo = document.querySelector('.hero__video');
+  const heroToggle = document.querySelector('[data-hero-toggle]');
+  if (heroVideo && heroToggle) {
+    let userPaused = reduce;
+    const sync = () => {
+      heroToggle.classList.toggle('is-paused', heroVideo.paused);
+      heroToggle.setAttribute('aria-label', heroVideo.paused ? 'Play the video' : 'Pause the video');
+    };
+    if (reduce) { heroVideo.removeAttribute('autoplay'); heroVideo.pause(); }
+    heroToggle.addEventListener('click', () => {
+      if (heroVideo.paused) { userPaused = false; heroVideo.play().catch(() => {}); }
+      else { userPaused = true; heroVideo.pause(); }
+    });
+    heroVideo.addEventListener('play', sync);
+    heroVideo.addEventListener('pause', sync);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([e]) => {
+        if (!e.isIntersecting) heroVideo.pause();
+        else if (!userPaused) heroVideo.play().catch(() => {});
+      }, { threshold: 0.2 }).observe(heroVideo);
+    }
+    sync();
+  }
+
   // Video: a calm play button over the poster. Nothing downloads until it is pressed.
   // Without JavaScript the browser's own controls still work.
   const film = document.querySelector('[data-film]');
