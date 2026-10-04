@@ -192,6 +192,26 @@
     }, 1800);
   }
 
+  // Video: a calm play button over the poster. Nothing downloads until it is pressed.
+  // Without JavaScript the browser's own controls still work.
+  const film = document.querySelector('[data-film]');
+  if (film) {
+    const video = film.querySelector('video');
+    const play = film.querySelector('.film__play');
+    video.controls = false;
+    play.hidden = false;
+    play.addEventListener('click', () => {
+      play.hidden = true;
+      video.controls = true;
+      video.play().catch(() => { play.hidden = false; video.controls = false; });
+    });
+    video.addEventListener('ended', () => {
+      video.controls = false;
+      video.load(); // back to the poster
+      play.hidden = false;
+    });
+  }
+
   // Marquee: duplicate the row so the loop is seamless.
   document.querySelectorAll('[data-marquee]').forEach((m) => {
     const row = m.querySelector('.marquee__row');
