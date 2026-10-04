@@ -234,29 +234,6 @@ em { font-family: var(--serif); font-style: italic; font-weight: 600; letter-spa
 .hero__pause.is-paused::before { width: 0; height: 0; border-style: solid; border-width: 6px 0 6px 10px; border-color: transparent transparent transparent #fff; margin-left: 2px; }
 @media (hover: none) { .hero__pause { opacity: .85; } }
 
-.chip {
-  position: absolute; display: grid; align-items: center; gap: 2px 10px;
-  background: #fff; color: #1F2622; border-radius: 16px; padding: 9px 13px;
-  box-shadow: 0 18px 40px -16px rgba(0, 0, 0, .5);
-  font-size: 12.5px; line-height: 1.25; will-change: transform; z-index: 1;
-}
-.chip b { font-weight: 700; display: block; }
-.chip small { color: #5C6660; font-size: 11.5px; }
-.chip__amt { font-weight: 700; font-variant-numeric: tabular-nums; }
-.chip__amt--pos { color: #1B7A4B; }
-.chip__icon { width: 28px; height: 28px; border-radius: 9px; display: grid; place-items: center; font-weight: 700; font-size: 13px; }
-.chip__icon--up { background: #F4EAD3; color: #856320; }
-
-.chip--salary { grid-template-columns: auto 1fr auto; top: 13%; left: -9%; min-width: 200px; }
-.chip--groceries { grid-template-columns: 1fr auto; right: -11%; top: 62%; min-width: 186px; }
-.chip__bar { grid-column: 1 / -1; height: 6px; border-radius: 9px; background: #E7E2D8; overflow: hidden; margin-top: 5px; }
-.chip__bar i { display: block; height: 100%; width: var(--to); background: #1B7A4B; border-radius: inherit; transform-origin: left; }
-.chip--goal { grid-template-columns: auto 1fr; left: -8%; bottom: 14%; }
-
-.ring { width: 36px; height: 36px; transform: rotate(-90deg); }
-.ring circle { fill: none; stroke-width: 5; stroke: #F2E6EA; }
-.ring .ring__fill { stroke: #C56C90; stroke-linecap: round; stroke-dasharray: 113.1; stroke-dashoffset: calc(113.1 * (1 - var(--p))); }
-
 /* Load choreography (keyframes always run, so nothing is left hidden) */
 .js .hero__title .w { animation: rise 1.1s var(--ease-out) both; animation-delay: calc(var(--i) * 70ms + 100ms); }
 .js .hero__lead, .js .hero__badges, .js .hero__promises { animation: fadeUp 1s var(--ease-out) both; }
@@ -264,18 +241,10 @@ em { font-family: var(--serif); font-style: italic; font-weight: 600; letter-spa
 .js .hero__badges { animation-delay: .7s; }
 .js .hero__promises { animation-delay: .85s; }
 .js .hero__stage { animation: phoneIn 1.4s var(--ease-out) .35s both; }
-.js .chip--salary { animation: chipIn .9s var(--ease-out) 1.05s both; }
-.js .chip--groceries { animation: chipIn .9s var(--ease-out) 1.25s both; }
-.js .chip--goal { animation: chipIn .9s var(--ease-out) 1.45s both; }
-.js .chip__bar i { animation: grow 1.4s var(--ease-out) 1.6s both; }
-.js .ring__fill { animation: ringIn 1.6s var(--ease-out) 1.7s both; }
 
 @keyframes rise { from { opacity: 0; transform: translateY(.45em); filter: blur(10px); } to { opacity: 1; transform: none; filter: blur(0); } }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 @keyframes phoneIn { from { opacity: 0; transform: translateY(120px); } to { opacity: 1; transform: none; } }
-@keyframes chipIn { from { opacity: 0; transform: translateY(24px) scale(.92); filter: blur(6px); } to { opacity: 1; transform: none; filter: blur(0); } }
-@keyframes grow { from { transform: scaleX(0); } }
-@keyframes ringIn { from { stroke-dashoffset: 113.1; } }
 
 @media (max-width: 900px) {
   .hero__inner { grid-template-columns: 1fr; }
@@ -283,13 +252,7 @@ em { font-family: var(--serif); font-style: italic; font-weight: 600; letter-spa
   .hero__stage { margin-top: 36px; padding-bottom: 48px; }
   .hero__phone { width: min(270px, 66%); border-radius: 44px; padding: 8px; }
   .hero__video { border-radius: 36px; }
-  /* On small screens the video carries the hero; the floating cards would cover it. */
-  .chip { display: none; }
 }
-@media (max-width: 420px) {
-  .chip--goal { display: none; }
-}
-
 /* ---------- Video ---------- */
 
 .film { padding: clamp(72px, 10vh, 120px) 0 0; }

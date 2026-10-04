@@ -93,7 +93,7 @@
     }
   }
 
-  // Hero: gentle 3D tilt that follows the pointer, with floating chips at different depths.
+  // Hero: gentle 3D tilt of the phone that follows the pointer.
   const stage = document.querySelector('[data-tilt]');
   if (stage && !reduce && finePointer) {
     const layers = [...stage.querySelectorAll('[data-depth]')];
