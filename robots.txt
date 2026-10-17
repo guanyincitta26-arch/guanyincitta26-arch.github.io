@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://budget.mindfuldesignstore.com/sitemap.xml

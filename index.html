@@ -3,15 +3,42 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Budget: a calm, private money tracker</title>
-<meta name="description" content="Budget is a calm, private way to track spending, plan every category, and grow your savings. No account, no tracking, no ads. Your data stays on your phone.">
-<meta name="theme-color" content="#0F2E23">
+<title>Budget: Private Budget Planner App | Simple Expense Tracking</title>
+<meta name="description" content="Budget is a calm, private budget planner for iPhone and Android. Track spending, plan every category, manage bills, and grow your savings. No account, no tracking, no ads. Your data stays on your phone.">
+<link rel="canonical" href="https://budget.mindfuldesignstore.com/">
+<meta name="theme-color" content="#F7F1E8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1A120D" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Budget">
+<meta property="og:url" content="https://budget.mindfuldesignstore.com/">
 <meta property="og:title" content="Budget: a calm, private money tracker">
-<meta property="og:description" content="No account. No tracking. No ads. Your numbers stay on your phone.">
+<meta property="og:description" content="A calmer way to manage money. No account. No tracking. No ads. Your numbers stay on your phone.">
+<meta property="og:image" content="https://budget.mindfuldesignstore.com/assets/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Budget app icon, with the words a calm, private money tracker, and App Store and Google Play badges.">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/icon-180.png">
-<link rel="preload" href="assets/fonts/dmsans-900.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="assets/fonts/fraunces-600.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Budget",
+  "alternateName": "Budget: Calm Money Tracker",
+  "description": "A calm, private budgeting app. Track spending, plan every category, manage recurring bills, and grow your savings. No account, no tracking, no ads. Your data stays on your phone.",
+  "url": "https://budget.mindfuldesignstore.com/",
+  "image": "https://budget.mindfuldesignstore.com/assets/share.jpg",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "iOS, Android",
+  "sameAs": [
+    "https://apps.apple.com/us/app/budget-calm-money-tracker/id6802582241",
+    "https://play.google.com/store/apps/details?id=com.michelleliu.budget"
+  ]
+}
+</script>
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -37,12 +64,12 @@
 <main id="main">
 
   <!-- HERO -->
-  <section class="hero" id="top">
-    <div class="hero__glow" aria-hidden="true"></div>
+  <section class="hero" id="top" data-hero>
+    <div class="hero__bokeh" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
     <div class="hero__inner">
       <div class="hero__copy">
-        <h1 class="hero__title" data-split>Your money.<br> Your plan.<br> Your <em>future.</em></h1>
-        <p class="hero__lead">Track your spending, manage recurring transactions, and grow your savings with a calm, effortless app that keeps your finances organized right on your phone.</p>
+        <h1 class="hero__title" data-split>A calmer way to <em>manage money.</em></h1>
+        <p class="hero__lead">Understand your spending, plan ahead and grow your savings. Simply and privately.</p>
         <div class="badges hero__badges">
           <a class="badge" href="https://apps.apple.com/us/app/budget-calm-money-tracker/id6802582241" aria-label="Download Budget on the App Store">
             <img src="assets/badges/app-store.svg" alt="Download on the App Store" width="150" height="50">
@@ -51,21 +78,28 @@
             <img src="assets/badges/google-play.png" alt="Get it on Google Play" width="169" height="50">
           </a>
         </div>
-        <ul class="hero__promises" aria-label="Privacy promises">
-          <li><span class="tick" aria-hidden="true"></span>No account</li>
-          <li><span class="tick" aria-hidden="true"></span>No tracking</li>
-          <li><span class="tick" aria-hidden="true"></span>No ads</li>
+        <ul class="chips hero__chips" aria-label="Why people choose Budget">
+          <li><span class="tick" aria-hidden="true"></span>Easy to use</li>
+          <li><span class="tick" aria-hidden="true"></span>Private by design</li>
+          <li><span class="tick" aria-hidden="true"></span>Monthly planning</li>
         </ul>
       </div>
 
       <div class="hero__stage" data-tilt>
-        <div class="hero__phone" data-depth="1">
+        <div class="hero__film" data-depth="1">
           <video class="hero__video" muted loop playsinline autoplay preload="auto" disablepictureinpicture
-            poster="assets/video/budget-launch-poster.webp" width="720" height="1280"
-            aria-label="A short silent video of Budget: logging an entry, a budget filling up, and savings goals growing.">
-            <source src="assets/video/budget-launch-vertical.mp4" type="video/mp4">
+            poster="assets/video/budget-film-poster.webp" width="720" height="1280"
+            aria-label="A 21 second film about Budget: a woman smiles at her phone in a cafe, then the app shows logging an entry, planning categories, and a promise that your numbers live on your phone. It has music and no narration.">
+            <source src="assets/video/budget-film-vertical.mp4" type="video/mp4">
           </video>
-          <button class="hero__pause" type="button" aria-label="Pause the video" data-hero-toggle></button>
+        </div>
+        <div class="hero__controls">
+          <button class="ctl ctl--sound" type="button" data-hero-sound aria-pressed="false">
+            <svg class="ctl__off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.2L12 5.5v13l-4.8-4H4z"/><path d="M16 9.5l5 5m0-5l-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <svg class="ctl__on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.2L12 5.5v13l-4.8-4H4z"/><path d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a7.8 7.8 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span data-sound-label>Play with sound</span>
+          </button>
+          <button class="ctl ctl--pause" type="button" aria-label="Pause the film" data-hero-toggle></button>
         </div>
       </div>
     </div>
@@ -74,7 +108,7 @@
   <!-- VIDEO -->
   <section class="film" aria-labelledby="film-title">
     <div class="wrap">
-      <h2 class="h2 film__title" id="film-title">A quick look <em>inside Budget.</em></h2>
+      <h2 class="h2 film__title" id="film-title" data-rise>A quick look <em>inside Budget.</em></h2>
       <div class="film__frame" data-film>
         <video class="film__video" controls playsinline preload="none"
           poster="assets/video/budget-in-action-poster.webp"
@@ -93,6 +127,7 @@
   <!-- PRIVACY STATEMENT -->
   <section class="statement" id="privacy">
     <div class="wrap">
+      <p class="statement__eyebrow">Private by design</p>
       <p class="statement__text" data-words>Budget has no account, no cloud, and no tracking. Your numbers live on your phone, and that is where they stay.</p>
     </div>
 
@@ -118,7 +153,7 @@
             <span>Airplane mode</span>
             <span class="toggle"><i></i></span>
           </div>
-          <div class="still-works"><span class="tick tick--dark"></span>Budget still works</div>
+          <div class="still-works"><span class="tick"></span>Budget still works</div>
         </div>
         <div class="promise__body">
           <h3>Works with no internet</h3>
@@ -143,7 +178,7 @@
   <!-- FEATURE STORY -->
   <section class="story" id="features" data-story>
     <div class="wrap story__head">
-      <h2 class="h2">Everything you need for a calmer month, <em>nothing you don&rsquo;t.</em></h2>
+      <h2 class="h2" data-rise>Everything you need for a calmer month, <em>nothing you don&rsquo;t.</em></h2>
     </div>
 
     <div class="wrap story__grid">
@@ -152,49 +187,49 @@
           <span class="step__tag">Dashboard</span>
           <h3>Your month at a glance</h3>
           <p>A warm greeting, a kind thought for the day, and what is coming up next. Step to any month with a tap.</p>
-          <div class="step__media phone phone--sm"><img src="assets/screens/01-home.webp" loading="lazy" width="720" height="1218" alt="The dashboard screen."></div>
+          <div class="step__media"><img src="assets/screens/01-home.webp" loading="lazy" width="720" height="1218" alt="The dashboard screen."></div>
         </li>
         <li class="step" data-step="1" data-screen="03-budget" data-tint="green">
           <span class="step__tag">Budget</span>
           <h3>Plan every category</h3>
           <p>Set a plan for groceries, transport, fun, and anything else. See what is left as you spend through the month.</p>
-          <div class="step__media phone phone--sm"><img src="assets/screens/03-budget.webp" loading="lazy" width="720" height="1218" alt="The budget screen, with planned and spent amounts and a progress bar for each category."></div>
+          <div class="step__media"><img src="assets/screens/03-budget.webp" loading="lazy" width="720" height="1218" alt="The budget screen, with planned and spent amounts and a progress bar for each category."></div>
         </li>
         <li class="step" data-step="2" data-screen="04-activity" data-tint="blue">
           <span class="step__tag">Activity</span>
           <h3>Every entry in one calm list</h3>
           <p>Log an expense, income, or transfer in a few taps. Tap any entry later to change it.</p>
-          <div class="step__media phone phone--sm"><img src="assets/screens/04-activity.webp" loading="lazy" width="720" height="1218" alt="The activity screen, listing salary, groceries, coffee, and a transfer to savings."></div>
+          <div class="step__media"><img src="assets/screens/04-activity.webp" loading="lazy" width="720" height="1218" alt="The activity screen, listing salary, groceries, coffee, and a transfer to savings."></div>
         </li>
         <li class="step" data-step="3" data-screen="05-calendar" data-tint="yellow">
           <span class="step__tag">Bills &amp; calendar</span>
           <h3>Bills laid out by day</h3>
           <p>Set up rent, pay, and subscriptions once and they post themselves. Add a reminder and get a gentle nudge the day before.</p>
-          <div class="step__media phone phone--sm"><img src="assets/screens/05-calendar.webp" loading="lazy" width="720" height="1218" alt="The calendar screen, with colored dots on bill days."></div>
+          <div class="step__media"><img src="assets/screens/05-calendar.webp" loading="lazy" width="720" height="1218" alt="The calendar screen, with colored dots on bill days."></div>
         </li>
         <li class="step" data-step="4" data-screen="06-savings" data-tint="rose">
           <span class="step__tag">Savings goals</span>
           <h3>Watch your goals fill up</h3>
           <p>Name a goal, set a target, and add to it whenever you can. Each ring fills a little more as you get closer.</p>
-          <div class="step__media phone phone--sm"><img src="assets/screens/06-savings.webp" loading="lazy" width="720" height="1218" alt="Savings goals: an emergency fund at 68 percent, a trip to Japan at 40 percent, and a new laptop that is complete."></div>
+          <div class="step__media"><img src="assets/screens/06-savings.webp" loading="lazy" width="720" height="1218" alt="Savings goals: an emergency fund at 68 percent, a trip to Japan at 40 percent, and a new laptop that is complete."></div>
         </li>
         <li class="step" data-step="5" data-screen="07-debts" data-tint="plum">
           <span class="step__tag">Debt payoff</span>
           <h3>A clear path out of debt</h3>
           <p>See what you owe, your monthly minimums, and roughly when each balance will be clear.</p>
-          <div class="step__media phone phone--sm"><img src="assets/screens/07-debts.webp" loading="lazy" width="720" height="1218" alt="Debt payoff: total owed, monthly minimums, and an estimated clear date for each debt."></div>
+          <div class="step__media"><img src="assets/screens/07-debts.webp" loading="lazy" width="720" height="1218" alt="Debt payoff: total owed, monthly minimums, and an estimated clear date for each debt."></div>
         </li>
         <li class="step" data-step="6" data-screen="08-accounts" data-tint="cyan">
           <span class="step__tag">Accounts</span>
           <h3>Cash, bank, and cards together</h3>
           <p>Keep every balance in one place. Move money between accounts or pay down a card with a simple transfer.</p>
-          <div class="step__media phone phone--sm"><img src="assets/screens/08-accounts.webp" loading="lazy" width="720" height="1218" alt="Accounts: an everyday account, cash, and a credit card."></div>
+          <div class="step__media"><img src="assets/screens/08-accounts.webp" loading="lazy" width="720" height="1218" alt="Accounts: an everyday account, cash, and a credit card."></div>
         </li>
         <li class="step" data-step="7" data-screen="02-review" data-tint="orange">
           <span class="step__tag">Monthly review</span>
           <h3>A gentle look back</h3>
           <p>At the end of each month, see your balances, your income, and where it went. No judgment, just a clear picture.</p>
-          <div class="step__media phone phone--sm"><img src="assets/screens/02-review.webp" loading="lazy" width="720" height="1218" alt="The monthly review for September, listing accounts, income, debt, and savings."></div>
+          <div class="step__media"><img src="assets/screens/02-review.webp" loading="lazy" width="720" height="1218" alt="The monthly review for September, listing accounts, income, debt, and savings."></div>
         </li>
       </ol>
 
@@ -219,7 +254,7 @@
   <!-- SMALL THINGS -->
   <section class="small" aria-labelledby="small-title">
     <div class="wrap">
-      <h2 class="h2" id="small-title">The small things, <em>done gently.</em></h2>
+      <h2 class="h2" id="small-title" data-rise>The small things, <em>done gently.</em></h2>
 
       <div class="bento">
         <article class="tile tile--ring" data-reveal>
@@ -305,7 +340,7 @@
   <section class="backups" id="backups">
     <div class="wrap backups__grid">
       <div class="backups__copy">
-        <h2 class="h2">Your backup is a file <em>you keep.</em></h2>
+        <h2 class="h2" data-rise>Your backup is a file <em>you keep.</em></h2>
         <p class="lead">There is no cloud copy of your data, so you are always in charge of it. Save a backup whenever you like and keep it wherever you trust.</p>
         <ol class="howto">
           <li><b>Export a backup</b><span>In Settings, tap Export a backup. Budget makes one small file.</span></li>
@@ -326,7 +361,7 @@
   <!-- FAQ -->
   <section class="faq" aria-labelledby="faq-title">
     <div class="wrap faq__grid">
-      <h2 class="h2" id="faq-title">Questions, <em>answered.</em></h2>
+      <h2 class="h2" id="faq-title" data-rise>Questions, <em>answered.</em></h2>
       <div class="faq__list">
         <details>
           <summary>Do I need an account?</summary>
@@ -358,10 +393,11 @@
 
   <!-- FINAL CTA -->
   <section class="cta" id="get">
+    <div class="cta__bokeh" aria-hidden="true"><i></i><i></i><i></i></div>
     <div class="wrap cta__grid">
       <div class="cta__copy">
-        <h2 class="cta__title">Start your <em>calm month.</em></h2>
-        <p class="hero__lead">Budget is ready on iPhone and Android. No account needed.</p>
+        <h2 class="cta__title" data-rise>Start your <em>calm month.</em></h2>
+        <p class="cta__lead">Budget is ready on iPhone and Android. No account needed.</p>
         <div class="badges">
           <a class="badge" href="https://apps.apple.com/us/app/budget-calm-money-tracker/id6802582241" aria-label="Download Budget on the App Store">
             <img src="assets/badges/app-store.svg" alt="Download on the App Store" width="150" height="50" loading="lazy">

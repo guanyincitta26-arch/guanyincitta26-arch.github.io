@@ -40,7 +40,7 @@
     return el.querySelectorAll('.w');
   }
 
-  document.querySelectorAll('[data-split]').forEach(splitWords);
+  document.querySelectorAll('[data-split], [data-rise]').forEach(splitWords);
 
   // Nav turns solid once the hero scrolls away.
   const nav = document.querySelector('[data-nav]');
@@ -49,7 +49,7 @@
   window.addEventListener('scroll', onScrollNav, { passive: true });
 
   // Reveal on view. Content is visible by default; this only adds polish.
-  const reveals = document.querySelectorAll('[data-reveal]');
+  const reveals = document.querySelectorAll('[data-reveal], [data-rise]');
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
@@ -68,6 +68,31 @@
     });
   }, 1800));
 
+  // Scroll-linked motion: the hero film straightens and lifts as you leave,
+  // and the video frame below grows into place as it arrives.
+  const hero = document.querySelector('[data-hero]');
+  const filmFrame = document.querySelector('[data-film]');
+  if (!reduce) {
+    let ticking = false;
+    const paint = () => {
+      ticking = false;
+      const vh = window.innerHeight;
+      if (hero) {
+        const h = hero.offsetHeight;
+        const hp = Math.min(1, Math.max(0, window.scrollY / h));
+        hero.style.setProperty('--hp', hp.toFixed(3));
+      }
+      if (filmFrame) {
+        const r = filmFrame.getBoundingClientRect();
+        const fp = Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.65)));
+        filmFrame.style.setProperty('--fp', fp.toFixed(3));
+      }
+    };
+    paint();
+    window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(paint); } }, { passive: true });
+    window.addEventListener('resize', paint);
+  }
+
   // Privacy statement: words brighten as the sentence scrolls through view.
   const statement = document.querySelector('[data-words]');
   if (statement) {
@@ -83,7 +108,7 @@
         const p = Math.min(1, Math.max(0, (start - r.top) / (start - end + r.height)));
         const lit = p * words.length;
         words.forEach((w, i) => {
-          const o = Math.min(1, Math.max(0.16, lit - i + 0.16));
+          const o = Math.min(1, Math.max(0.2, lit - i + 0.2));
           w.style.setProperty('--o', o.toFixed(3));
         });
       };
@@ -93,42 +118,40 @@
     }
   }
 
-  // Hero: gentle 3D tilt of the phone that follows the pointer.
+  // Hero: gentle 3D tilt of the film that follows the pointer.
   const stage = document.querySelector('[data-tilt]');
-  if (stage && !reduce && finePointer) {
-    const layers = [...stage.querySelectorAll('[data-depth]')];
+  if (stage && hero && !reduce && finePointer) {
+    const film = stage.querySelector('[data-depth]');
     let tx = 0, ty = 0, cx = 0, cy = 0, raf = 0;
-    const hero = stage.closest('.hero');
     const loop = () => {
       cx += (tx - cx) * 0.07;
       cy += (ty - cy) * 0.07;
-      layers.forEach((el) => {
-        const d = parseFloat(el.dataset.depth);
-        if (el.classList.contains('hero__phone')) {
-          el.style.transform = `rotateY(${cx * 7}deg) rotateX(${-cy * 5}deg)`;
-        } else {
-          el.style.translate = `${cx * d * 10}px ${cy * d * 8}px`;
-        }
-      });
+      film.style.transform = `rotateY(${cx * 8}deg) rotateX(${-cy * 6}deg)`;
       if (Math.abs(tx - cx) > 0.001 || Math.abs(ty - cy) > 0.001) raf = requestAnimationFrame(loop);
       else raf = 0;
     };
-    hero.addEventListener('pointermove', (e) => {
-      const r = hero.getBoundingClientRect();
-      tx = (e.clientX - r.left) / r.width - 0.5;
-      ty = (e.clientY - r.top) / r.height - 0.5;
-      if (!raf) raf = requestAnimationFrame(loop);
-    });
-    hero.addEventListener('pointerleave', () => { tx = 0; ty = 0; if (!raf) raf = requestAnimationFrame(loop); });
+    // Wait for the entrance animation to finish so the two never fight.
+    film.addEventListener('animationend', () => {
+      film.style.animation = 'none';
+      hero.addEventListener('pointermove', (e) => {
+        const r = hero.getBoundingClientRect();
+        tx = (e.clientX - r.left) / r.width - 0.5;
+        ty = (e.clientY - r.top) / r.height - 0.5;
+        if (!raf) raf = requestAnimationFrame(loop);
+      });
+      hero.addEventListener('pointerleave', () => { tx = 0; ty = 0; if (!raf) raf = requestAnimationFrame(loop); });
+    }, { once: true });
   }
 
   // Feature story: the phone on the right follows the step you are reading.
+  // Screens you have passed glide up and away; the next one rises in.
   const story = document.querySelector('[data-story]');
   if (story) {
     const steps = [...story.querySelectorAll('.step')];
     const shots = [...story.querySelectorAll('[data-shot]')];
     const dots = [...story.querySelectorAll('.story__dots i')];
     const panel = story.querySelector('[data-panel]');
+    const order = steps.map((s) => s.dataset.screen);
     let current = -1;
 
     steps.forEach((s) => s.style.setProperty('--tint', `var(--t-${s.dataset.tint})`));
@@ -138,7 +161,11 @@
       current = i;
       const step = steps[i];
       steps.forEach((s, j) => s.classList.toggle('is-active', j === i));
-      shots.forEach((img) => img.classList.toggle('is-active', img.dataset.shot === step.dataset.screen));
+      shots.forEach((img) => {
+        const k = order.indexOf(img.dataset.shot);
+        img.classList.toggle('is-active', k === i);
+        img.classList.toggle('is-past', k < i);
+      });
       dots.forEach((d, j) => d.classList.toggle('is-active', j === i));
       panel.style.setProperty('--panel', `var(--t-${step.dataset.tint})`);
     };
@@ -192,30 +219,66 @@
     }, 1800);
   }
 
-  // Hero phone video: silent loop. Pauses off screen, has a pause button,
-  // and never starts on its own for people who prefer reduced motion.
+  // Hero film: a silent loop. Pauses off screen, has a pause button, and never
+  // starts on its own for people who prefer reduced motion. "Play with sound"
+  // starts it from the beginning with music, then it returns to a silent loop.
   const heroVideo = document.querySelector('.hero__video');
   const heroToggle = document.querySelector('[data-hero-toggle]');
+  const heroSound = document.querySelector('[data-hero-sound]');
   if (heroVideo && heroToggle) {
     let userPaused = reduce;
-    const sync = () => {
+    const label = heroSound && heroSound.querySelector('[data-sound-label]');
+    const syncPause = () => {
       heroToggle.classList.toggle('is-paused', heroVideo.paused);
-      heroToggle.setAttribute('aria-label', heroVideo.paused ? 'Play the video' : 'Pause the video');
+      heroToggle.setAttribute('aria-label', heroVideo.paused ? 'Play the film' : 'Pause the film');
+    };
+    const syncSound = () => {
+      if (!heroSound) return;
+      const on = !heroVideo.muted;
+      heroSound.classList.toggle('is-on', on);
+      heroSound.setAttribute('aria-pressed', String(on));
+      label.textContent = on ? 'Mute' : 'Play with sound';
     };
     if (reduce) { heroVideo.removeAttribute('autoplay'); heroVideo.pause(); }
     heroToggle.addEventListener('click', () => {
       if (heroVideo.paused) { userPaused = false; heroVideo.play().catch(() => {}); }
       else { userPaused = true; heroVideo.pause(); }
     });
-    heroVideo.addEventListener('play', sync);
-    heroVideo.addEventListener('pause', sync);
+    if (heroSound) {
+      heroSound.addEventListener('click', () => {
+        if (heroVideo.muted) {
+          const other = document.querySelector('.film__video');
+          if (other && !other.paused) other.pause();
+          heroVideo.muted = false;
+          heroVideo.loop = false;
+          heroVideo.currentTime = 0;
+          userPaused = false;
+          heroVideo.play().catch(() => {});
+        } else {
+          heroVideo.muted = true;
+          heroVideo.loop = true;
+        }
+        syncSound();
+      });
+    }
+    heroVideo.addEventListener('ended', () => {
+      // After one full play with sound, settle back into the quiet loop.
+      heroVideo.muted = true;
+      heroVideo.loop = true;
+      syncSound();
+      if (!reduce) heroVideo.play().catch(() => {});
+    });
+    heroVideo.addEventListener('volumechange', syncSound);
+    heroVideo.addEventListener('play', syncPause);
+    heroVideo.addEventListener('pause', syncPause);
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(([e]) => {
         if (!e.isIntersecting) heroVideo.pause();
         else if (!userPaused) heroVideo.play().catch(() => {});
       }, { threshold: 0.2 }).observe(heroVideo);
     }
-    sync();
+    syncPause();
+    syncSound();
   }
 
   // Video: a calm play button over the poster. Nothing downloads until it is pressed.
@@ -227,6 +290,8 @@
     video.controls = false;
     play.hidden = false;
     play.addEventListener('click', () => {
+      // Only one video plays with sound at a time.
+      if (heroVideo && !heroVideo.muted) { heroVideo.muted = true; heroVideo.loop = true; }
       play.hidden = true;
       video.controls = true;
       video.play().catch(() => { play.hidden = false; video.controls = false; });
