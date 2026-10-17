@@ -40,12 +40,18 @@
   .contact h3{margin:0 0 6px;font-size:16.5px;font-weight:700;}
   .contact p{margin:0;color:var(--muted);}
   a{color:var(--accent);}
+  .home{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--accent);background:var(--accentT);border-radius:999px;padding:9px 16px 9px 13px;text-decoration:none;transition:background-color .2s,transform .2s;}
+  .home:hover{background:#EFE0BF;transform:translateX(-2px);}
+  .home:focus-visible{outline:3px solid var(--accent);outline-offset:3px;}
+  .home--top{display:flex;width:fit-content;margin-bottom:28px;}
+  .home--bottom{margin-top:36px;}
   .foot{margin-top:44px;padding-top:20px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
   @media (max-width:520px){ h1{font-size:31px;} .wrap{padding:40px 18px 64px;} }
 </style>
 </head>
 <body>
   <main class="wrap">
+    <a class="home home--top" href="./"><span aria-hidden="true">&larr;</span>Back to Budget home</a>
     <div class="brand"><span class="dot"></span>Budget</div>
     <h1>Budget: Help &amp; Support</h1>
     <p class="lead">A calm, private place for your money. Here is how to get the most out of it, and how to reach a real person if you are stuck.</p>
@@ -111,6 +117,8 @@
       <h3>Your privacy, plainly</h3>
       <p>Budget collects no personal data. Your transactions, budgets, and goals never leave your device. No sign-up, no tracking, no advertising. See the full <a href="privacy-policy.html">privacy policy</a> for details.</p>
     </div>
+
+    <a class="home home--bottom" href="./"><span aria-hidden="true">&larr;</span>Back to Budget home</a>
 
     <p class="foot">Budget &middot; Help &amp; Support &middot; Updated October 2026</p>
   </main>

@@ -35,12 +35,18 @@
   ul li{font-size:13px;font-weight:600;color:var(--accent);background:var(--accentT);border-radius:999px;padding:7px 13px;}
   h2{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:22px;margin:34px 0 8px;padding-top:22px;border-top:1px solid var(--border);}
   a{color:var(--accent);}
+  .home{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--accent);background:var(--accentT);border-radius:999px;padding:9px 16px 9px 13px;text-decoration:none;transition:background-color .2s,transform .2s;}
+  .home:hover{background:#EFE0BF;transform:translateX(-2px);}
+  .home:focus-visible{outline:3px solid var(--accent);outline-offset:3px;}
+  .home--top{display:flex;width:fit-content;margin-bottom:28px;}
+  .home--bottom{margin-top:36px;}
   .foot{margin-top:40px;padding-top:20px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
   @media (max-width:520px){ h1{font-size:31px;} .wrap{padding:40px 18px 64px;} }
 </style>
 </head>
 <body>
   <main class="wrap">
+    <a class="home home--top" href="./"><span aria-hidden="true">&larr;</span>Back to Budget home</a>
     <div class="brand"><span class="dot"></span>Budget · Privacy Policy</div>
     <h1>Budget: Privacy Policy</h1>
     <p class="lead">Your data stays on your phone.</p>
@@ -85,6 +91,8 @@
 
     <h2>Contact</h2>
     <p>Questions about privacy or this policy? Email <a href="mailto:guanyincitta26@gmail.com">guanyincitta26@gmail.com</a> and I will be glad to help.</p>
+
+    <a class="home home--bottom" href="./"><span aria-hidden="true">&larr;</span>Back to Budget home</a>
 
     <p class="foot">Budget &middot; A calm, private budgeting app. This policy applies to the Budget app on iPhone and Android.</p>
   </main>
